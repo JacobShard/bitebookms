@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "624708243551",
+    "project_id": "restaurantapp-456c0",
+    "storage_bucket": "restaurantapp-456c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624708243551:android:031699491d1c9a288ecbea",
+        "android_client_info": {
+          "package_name": "com.Shardey.bitebook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKiDJpTl-fvf1CuG8qdkMzdZf3unZ18pc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624708243551:android:7ca3567ab89558558ecbea",
+        "android_client_info": {
+          "package_name": "com.Shardey.bitebook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKiDJpTl-fvf1CuG8qdkMzdZf3unZ18pc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,39 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services' // Add this line to apply the Google services plugin
+}
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        applicationId "com.Shardey.bitebook" // Make sure this matches your package name
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+
+        // Enable multidex support if needed
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // Import the Firebase BoM (Bill of Materials)
+    implementation platform('com.google.firebase:firebase-bom:33.4.0')
+    // Add the dependencies for the Firebase products you want to use
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.android.gms:play-services-auth:20.5.0' // For Google Sign-In
+}
+
+// Apply the Google services plugin at the bottom
+apply plugin: 'com.google.gms.google-services'
