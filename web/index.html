@@ -12,51 +12,40 @@
   <link rel="icon" type="image/png" href="favicon.png"/>
   <title>BiteBook</title>
   <link rel="manifest" href="manifest.json">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCplA0EoQaLKuKgkeB1pCv9EWrOq0mm5yU"></script>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-storage-compat.js"></script>
+
   <script>
-    const serviceWorkerVersion = null;
-    window.addEventListener('load', function () {
-      const loading = document.querySelector('#loading');
-      _flutter.loader.load({
+    // Firebase configuration will be injected at runtime
+    const firebaseConfig = {
+      apiKey: process.env.FIREBASE_API_KEY,
+      authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+      messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+      appId: process.env.FIREBASE_APP_ID
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="flutter.js" defer></script>
+</head>
+<body>
+  <script>
+    window.addEventListener('load', function(ev) {
+      _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         }
+      }).then(function(engineInitializer) {
+        return engineInitializer.initializeEngine();
+      }).then(function(appRunner) {
+        return appRunner.runApp();
       });
     });
   </script>
-  <style>
-    body {
-      background-color: #E3F2FD;
-    }
-    .loading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
-    .loader {
-      border: 8px solid #f3f3f3;
-      border-radius: 50%;
-      border-top: 8px solid #2196F3;
-      width: 60px;
-      height: 60px;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
-</head>
-<body>
-  <div id="loading" class="loading">
-    <div class="loader"></div>
-  </div>
-  <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
